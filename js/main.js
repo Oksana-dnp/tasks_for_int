@@ -1,3 +1,6 @@
+//classNames
+
+
 let classNamesList = ['header', 'block', 'task', 'block', 'text', 'link', 'task', 'link', 'task', 'link' ];
 
 
@@ -21,4 +24,52 @@ let result = Object.keys(classNamesCount).sort((a,b)=>{
 }
 )
 
-console.log(result)
+
+//simple Numbers
+
+function isPrime(num) {
+    let result = [];
+    test: for(; num > 1; num--){
+        for (let i = 2, max = Math.sqrt(num); i <= max; i++) {
+            if (num % i === 0) {
+                continue test;
+            }
+        }
+        result.push(num)
+    }
+    return result
+}
+
+console.log(isPrime(49))
+
+
+//crossing two arrays
+
+let input1 = [4, 9, 4, 5];
+let input2 = [9, 4, 9, 8, 4];
+
+function findCrossArr(nums1, nums2){
+    let result = [];
+
+    let map = nums1.reduce((accum, item)=>{
+        accum[item] = accum[item] ? accum[item] + 1 : 1;
+        return accum
+    }, {})
+    console.log('map',map)
+    for(let i=0; i < nums2.length; i++){
+        let current = nums2[i];
+        console.log('current-->', current);
+        
+        let count = map[current];
+        console.log('count-->', map[current])
+        if(count && count > 0){
+            result.push(current);
+            map[current] -=1;
+        }
+
+    }
+
+    return result;
+}
+console.log('same__>', findCrossArr(input1, input2));
+
