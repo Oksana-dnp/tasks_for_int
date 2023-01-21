@@ -27,6 +27,26 @@ let result = Object.keys(classNamesCount).sort((a,b)=>{
 
 //simple Numbers
 
+function getPrime(num) {
+    let seive = [];
+    let primes = [];
+
+    for(let i=2; i <= num; i++){
+        console.log('i-->', seive[i])
+        if(!seive[i]) {
+            primes.push(i);
+            for(let j = i*2; j <= num; j+=i){
+                seive[j] = true;
+            }
+        }
+    }
+    console.log('seive-->', typeof(seive))
+
+    return primes
+}
+
+console.log(getPrime(160))
+
 function isPrime(num) {
     let result = [];
     test: for(; num > 1; num--){
