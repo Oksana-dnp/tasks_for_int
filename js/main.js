@@ -9,7 +9,7 @@ let bracketsList = ['{', '[', ']', '}'];
         '}': '{',
         ']': '[',
     }
-    if (arr.length > 2) {
+
         for (let item of arr) {
             if (isClosingBrackets(item)){
                 if (stack.pop() !== brackets[item]) return false
@@ -19,7 +19,7 @@ let bracketsList = ['{', '[', ']', '}'];
                 stack.push(item);
             }
         }
-    }
+    
     return stack.length ===0
 }
 
